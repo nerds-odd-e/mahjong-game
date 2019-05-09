@@ -33,15 +33,15 @@ PRDUCT_MAIN_OBJ = src/main.o
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
 
 $(CPPUTEST_LIB) :
-	make -C cpputest all extensions
+	make -C cpputest all
 $(EVALUATOR_LIB) :
 	make -C $(EVALUATOR)
 	
 .PHONY: product
 product : $(PRODUCT)
 
-$(PRODUCT): $(PRDUCT_MAIN_OBJ) $(TARGET_LIB) $(EVALUATOR_LIB) $(CPPUTEST_LIB)
+$(PRODUCT): $(PRDUCT_MAIN_OBJ) $(TARGET_LIB) $(EVALUATOR_LIB)
 	@echo 'Building target: $@'
-	$(CC) -o $@ -g $^ $(LD_LIBRARIES) -lstdc++
+	$(CC) -o $@ -g $^ $(LD_LIBRARIES) -lstdc++ -lcpputest
 	@echo 'Running the game. Go to your browser to play at http://localhst:8888'
 	./$(PRODUCT)

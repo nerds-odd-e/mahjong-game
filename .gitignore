@@ -2,3 +2,5 @@
 /objs
 /mahjong
 /mahjong_tests
+.idea
+src/main.o
