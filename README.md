@@ -18,3 +18,9 @@ To run the code, please execute
 cd src
 ./game
 ```
+
+To run the test, please execute 
+```
+./tst/mahjong-test
+./mahjong_evaluator/tst/mahjong-evaluator-test
+```
