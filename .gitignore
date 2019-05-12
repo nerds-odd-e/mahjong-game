@@ -4,3 +4,4 @@
 /mahjong_tests
 .idea
 src/main.o
+cmake-build-debug
