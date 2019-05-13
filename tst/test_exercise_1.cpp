@@ -27,25 +27,33 @@ TEST(tiles_is_able_to_chow, notAbleToChow) {
 }
 
 TEST(tiles_is_able_to_chow, chowWhenTileOnTheLeft) {
-    tile_t tiles[] = {MJ_CHARACTOR(2), MJ_CHARACTOR(3), MJ_EAST, MJ_EAST};
+    tile_t tiles[] = {C(2), C(3), MJ_EAST, MJ_EAST};
 
-    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), MJ_CHARACTOR(1));
+    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), C(1));
 
     CHECK_TRUE(result)
 }
 
 TEST(tiles_is_able_to_chow, chowWhenTileInTheMiddle) {
-    tile_t tiles[] = {MJ_CHARACTOR(1), MJ_CHARACTOR(3), MJ_EAST, MJ_EAST};
+    tile_t tiles[] = {C(1), C(3), MJ_EAST, MJ_EAST};
 
-    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), MJ_CHARACTOR(2));
+    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), C(2));
 
     CHECK_TRUE(result)
 }
 
 TEST(tiles_is_able_to_chow, chowWhenTileOnTheRight) {
-    tile_t tiles[] = {MJ_CHARACTOR(1), MJ_CHARACTOR(2), MJ_EAST, MJ_EAST};
+    tile_t tiles[] = {C(1), C(2), MJ_EAST, MJ_EAST};
 
-    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), MJ_CHARACTOR(3));
+    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), C(3));
+
+    CHECK_TRUE(result)
+}
+
+TEST(tiles_is_able_to_chow, chowWhenTileAlreadyThere) {
+    tile_t tiles[] = {C(1), C(2), C(3), MJ_EAST};
+
+    int result = tiles_is_able_to_chow(tiles, sizeof(tiles), C(3));
 
     CHECK_TRUE(result)
 }
